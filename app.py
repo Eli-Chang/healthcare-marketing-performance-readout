@@ -39,21 +39,27 @@ st.markdown(
     """
     <style>
     :root {
-        --readout-page: #000721;
-        --readout-sidebar: #000414;
-        --readout-surface: #071542;
-        --readout-surface-raised: #0f285e;
-        --readout-text: #ffffff;
-        --readout-muted: #e4ecff;
-        --readout-line: #2f467c;
-        --readout-gold-light: #e3c56b;
-        --readout-gold: #e3c56b;
-        --readout-gold-deep: #7b5514;
-        --readout-table-bg: #0b0f17;
-        --readout-table-header: #151a23;
-        --readout-table-text: #eef1f5;
-        --readout-table-muted: #b8c0cc;
-        --readout-table-line: #29313d;
+        --readout-page: #081a36;
+        --readout-sidebar: #06142b;
+        --readout-surface: #10294b;
+        --readout-surface-raised: #17385e;
+        --readout-text: #f7fbff;
+        --readout-muted: #c7d3e2;
+        --readout-line: #2c4b70;
+        --readout-accent: #56b9b5;
+        --readout-accent-light: #7dd4cb;
+        --readout-accent-deep: #2d7f82;
+        --readout-positive: #7bb992;
+        --readout-negative: #d18489;
+        --readout-warning: #d4a54a;
+        --readout-warning-light: #f1d18b;
+        --readout-warning-bg: rgba(212, 165, 74, .14);
+        --readout-table-bg: #132844;
+        --readout-table-header: #203a5d;
+        --readout-table-alt: #182f51;
+        --readout-table-text: #f1f5fa;
+        --readout-table-muted: #cdd8e5;
+        --readout-table-line: #3a5677;
     }
     html, body,
     [data-testid="stAppViewContainer"],
@@ -73,35 +79,65 @@ st.markdown(
     }
     .eyebrow {
         display: inline-block;
-        background: linear-gradient(180deg, var(--readout-gold-light) 0%, var(--readout-gold) 48%, var(--readout-gold-deep) 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        color: var(--readout-gold-light) !important;
-        filter: drop-shadow(0 1px 0 rgba(72, 48, 12, .45));
-        font-weight: 800;
+        color: var(--readout-accent-light) !important;
+        font-weight: 750;
+        letter-spacing: .02em;
     }
     p, li, [data-testid="stCaptionContainer"], [data-testid="stSidebar"] label {
         color: var(--readout-muted) !important;
         font-size: 1rem !important;
         line-height: 1.45;
     }
+    [data-testid="stCaptionContainer"] {
+        font-size: .95rem !important;
+    }
     .synthetic-banner {
-        background: linear-gradient(135deg, rgba(227, 197, 107, .12), rgba(123, 85, 20, .26));
-        border-left: 4px solid var(--readout-gold);
-        color: var(--readout-gold-light) !important;
+        background: var(--readout-warning-bg);
+        border: 1px solid rgba(212, 165, 74, .38);
+        border-left: 4px solid var(--readout-warning);
+        color: var(--readout-warning-light) !important;
         padding: .8rem 1rem;
         font-weight: 750;
         letter-spacing: .04em;
-        box-shadow: inset 0 1px 0 rgba(227, 197, 107, .12), 0 4px 14px rgba(0, 0, 0, .18);
+        box-shadow: 0 5px 16px rgba(0, 0, 0, .14);
     }
     [data-testid="stMetricLabel"] {
         color: var(--readout-muted) !important;
-        font-size: 1rem !important;
-        font-weight: 700 !important;
+        font-size: .82rem !important;
+        font-weight: 750 !important;
+        letter-spacing: .06em;
+        text-transform: uppercase;
     }
     [data-testid="stMetricValue"] {
         color: var(--readout-text) !important;
+        font-size: 2.05rem !important;
+        font-weight: 760 !important;
+        letter-spacing: -.02em;
+    }
+    [data-testid="stMetricValue"] [data-testid="stMarkdownContainer"],
+    [data-testid="stMetricValue"] p {
+        font-size: inherit !important;
+        line-height: 1.05 !important;
+    }
+    [class*="st-key-kpi-card-"] {
+        background: var(--readout-surface);
+        border: 1px solid var(--readout-line);
+        border-left: 3px solid var(--readout-accent);
+        border-radius: 10px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, .16);
+        min-height: 154px;
+        padding: .72rem .9rem .62rem;
+    }
+    [class*="st-key-kpi-card-"] [data-testid="stMetric"] {
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+        padding: 0;
+    }
+    [class*="st-key-kpi-card-"] [data-testid="stCaptionContainer"] {
+        color: var(--readout-muted) !important;
+        font-size: .88rem !important;
+        margin-top: .35rem;
     }
     [data-testid="stMetricDelta"] {
         background-color: color-mix(in srgb, currentColor 22%, transparent) !important;
@@ -109,6 +145,7 @@ st.markdown(
         padding: .18rem .5rem;
         opacity: 1 !important;
         font-weight: 700 !important;
+        filter: saturate(.78);
     }
     [data-testid="stTab"] {
         font-size: 1rem !important;
@@ -120,17 +157,17 @@ st.markdown(
     }
     [data-testid="stDataFrame"] [role="columnheader"],
     [data-testid="stTable"] thead th {
-        background: var(--readout-surface-raised) !important;
-        color: var(--readout-gold-light) !important;
+        background: var(--readout-table-header) !important;
+        color: var(--readout-table-muted) !important;
         font-weight: 800 !important;
     }
     [data-testid="stDataFrame"] [role="gridcell"] {
         color: var(--readout-text) !important;
     }
     .stDataFrameGlideDataEditor {
-        --gdg-accent-color: var(--readout-gold) !important;
+        --gdg-accent-color: var(--readout-accent) !important;
         --gdg-accent-fg: var(--readout-page) !important;
-        --gdg-accent-light: rgba(242, 204, 107, .18) !important;
+        --gdg-accent-light: rgba(86, 185, 181, .18) !important;
         --gdg-text-dark: var(--readout-text) !important;
         --gdg-text-medium: var(--readout-muted) !important;
         --gdg-text-light: rgba(228, 236, 255, .78) !important;
@@ -145,7 +182,7 @@ st.markdown(
         --gdg-bg-header-hovered: var(--readout-table-line) !important;
         --gdg-bg-group-header: var(--readout-table-header) !important;
         --gdg-bg-group-header-hovered: var(--readout-table-line) !important;
-        --gdg-bg-search-result: rgba(227, 197, 107, .14) !important;
+        --gdg-bg-search-result: rgba(86, 185, 181, .14) !important;
         --gdg-border-color: var(--readout-table-line) !important;
         --gdg-horizontal-border-color: var(--readout-table-line) !important;
     }
@@ -179,7 +216,7 @@ st.markdown(
         white-space: nowrap;
     }
     .readout-table tbody tr:nth-child(even) td {
-        background: #121821;
+        background: var(--readout-table-alt);
     }
     .readout-table tbody tr:last-child td {
         border-bottom: 0;
@@ -192,7 +229,7 @@ st.markdown(
     }
     button[data-baseweb="tab"][aria-selected="true"],
     [role="tab"][aria-selected="true"] {
-        color: var(--readout-gold-light) !important;
+        color: var(--readout-accent-light) !important;
         font-weight: 800 !important;
     }
     [data-testid="stTab"] {
@@ -200,14 +237,37 @@ st.markdown(
     }
     [data-testid="stTab"][aria-selected="true"],
     [data-testid="stTab"][aria-selected="true"] * {
-        color: var(--readout-gold-light) !important;
+        color: var(--readout-accent-light) !important;
         font-weight: 800 !important;
     }
     [data-testid="stTab"] .react-aria-SelectionIndicator {
-        background: linear-gradient(90deg, var(--readout-gold-deep), var(--readout-gold-light), var(--readout-gold-deep)) !important;
+        background: var(--readout-accent) !important;
     }
     [data-baseweb="tab-highlight"] {
-        background: linear-gradient(90deg, var(--readout-gold-deep), var(--readout-gold-light), var(--readout-gold-deep)) !important;
+        background: var(--readout-accent) !important;
+    }
+    .qa-card {
+        background: var(--readout-surface);
+        border: 1px solid var(--readout-line);
+        border-left: 3px solid var(--readout-accent);
+        border-radius: 8px;
+        color: var(--readout-text);
+        padding: .9rem 1rem;
+    }
+    .qa-pass {
+        color: var(--readout-positive) !important;
+    }
+    .qa-warning {
+        color: var(--readout-warning-light) !important;
+    }
+    .qa-review {
+        color: var(--readout-negative) !important;
+    }
+    .scope-note {
+        color: var(--readout-muted) !important;
+    }
+    [data-testid="stDivider"] {
+        border-color: var(--readout-line) !important;
     }
     </style>
     """,
@@ -293,7 +353,7 @@ dataset = load_dataset()
 
 st.title("Weekly Performance Readout")
 st.markdown(
-    '<div class="synthetic-banner">SYNTHETIC DATA · FICTIONAL HEALTHCARE MARKETING ORGANIZATION · NO LIVE ACCOUNTS</div>',
+    '<div class="synthetic-banner">SYNTHETIC DATA • FICTIONAL HEALTHCARE MARKETING ORGANIZATION • NO LIVE ACCOUNTS</div>',
     unsafe_allow_html=True,
 )
 st.markdown('<div class="eyebrow">Portfolio demonstration</div>', unsafe_allow_html=True)
@@ -323,8 +383,9 @@ with report_tab:
         cols = st.columns(3)
         for column, (label, key, kind, note) in zip(cols, KPI_DEFINITIONS[start : start + 3]):
             with column:
-                st.metric(label, _display(readout["current_metrics"].get(key), kind), _delta(readout["changes"][key]), delta_color="normal")
-                st.caption(note)
+                with st.container(key=f"kpi-card-{key}"):
+                    st.metric(label, _display(readout["current_metrics"].get(key), kind), _delta(readout["changes"][key]), delta_color="normal")
+                    st.caption(note)
 
     st.subheader("Channel Performance")
     st.markdown(_html_table([_metric_row(item) for item in readout["channel_performance"]]), unsafe_allow_html=True)
