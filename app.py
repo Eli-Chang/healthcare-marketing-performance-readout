@@ -43,18 +43,18 @@ st.markdown(
         --readout-sidebar: #eceff1;
         --readout-surface: #ffffff;
         --readout-surface-raised: #f8fafc;
-        --readout-text: #111827;
-        --readout-muted: #4b5563;
+        --readout-text: #0b1f3a;
+        --readout-muted: #374151;
         --readout-line: #c7cbd1;
         --readout-focus: #374151;
         --readout-focus-light: #6b7280;
         --readout-positive: #15803d;
         --readout-negative: #b91c1c;
-        --readout-status-neutral: #4b5563;
+        --readout-status-neutral: #374151;
         --readout-table-bg: #ffffff;
         --readout-table-header: #202124;
         --readout-table-alt: #eef0f2;
-        --readout-table-text: #111827;
+        --readout-table-text: #0b1f3a;
         --readout-table-muted: #ffffff;
         --readout-table-line: #9ca3af;
     }
@@ -91,7 +91,7 @@ st.markdown(
         background: #e5e7eb;
         border: 1px solid #bfc4cc;
         border-left: 4px solid var(--readout-status-neutral);
-        color: #1f2937 !important;
+        color: #0b1f3a !important;
         padding: .8rem 1rem;
         font-weight: 750;
         letter-spacing: .04em;
@@ -166,7 +166,7 @@ st.markdown(
         --gdg-accent-light: rgba(55, 65, 81, .14) !important;
         --gdg-text-dark: var(--readout-text) !important;
         --gdg-text-medium: var(--readout-muted) !important;
-        --gdg-text-light: rgba(17, 24, 39, .68) !important;
+        --gdg-text-light: rgba(11, 31, 58, .68) !important;
         --gdg-text-bubble: var(--readout-muted) !important;
         --gdg-text-header: var(--readout-table-muted) !important;
         --gdg-text-group-header: var(--readout-table-muted) !important;
