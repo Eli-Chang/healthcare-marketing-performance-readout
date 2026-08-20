@@ -43,7 +43,7 @@ st.markdown(
         --readout-sidebar: #eceff1;
         --readout-surface: #ffffff;
         --readout-surface-raised: #f8fafc;
-        --readout-text: #0b1f3a;
+        --readout-text: #0e2442;
         --readout-muted: #374151;
         --readout-line: #c7cbd1;
         --readout-focus: #374151;
@@ -54,7 +54,7 @@ st.markdown(
         --readout-table-bg: #ffffff;
         --readout-table-header: #202124;
         --readout-table-alt: #eef0f2;
-        --readout-table-text: #0b1f3a;
+        --readout-table-text: #0e2442;
         --readout-table-muted: #ffffff;
         --readout-table-line: #9ca3af;
     }
@@ -91,7 +91,7 @@ st.markdown(
         background: #e5e7eb;
         border: 1px solid #bfc4cc;
         border-left: 4px solid var(--readout-status-neutral);
-        color: #0b1f3a !important;
+        color: #0e2442 !important;
         padding: .8rem 1rem;
         font-weight: 750;
         letter-spacing: .04em;
@@ -166,7 +166,7 @@ st.markdown(
         --gdg-accent-light: rgba(55, 65, 81, .14) !important;
         --gdg-text-dark: var(--readout-text) !important;
         --gdg-text-medium: var(--readout-muted) !important;
-        --gdg-text-light: rgba(11, 31, 58, .68) !important;
+        --gdg-text-light: rgba(14, 36, 66, .68) !important;
         --gdg-text-bubble: var(--readout-muted) !important;
         --gdg-text-header: var(--readout-table-muted) !important;
         --gdg-text-group-header: var(--readout-table-muted) !important;
