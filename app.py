@@ -206,6 +206,9 @@ st.markdown(
         color: var(--readout-table-text);
         font-size: .96rem;
     }
+    table.readout-table {
+        border-collapse: separate !important;
+    }
     .readout-table thead,
     .readout-table thead tr {
         background: var(--readout-table-header);

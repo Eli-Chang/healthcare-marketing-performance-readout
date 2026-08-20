@@ -93,6 +93,8 @@ class PublicBuildTests(unittest.TestCase):
         self.assertNotIn("border: 1px solid var(--readout-table-line);", app_source)
         self.assertIn('[data-testid="stExpandSidebarButton"] [data-testid="stIconMaterial"]', app_source)
         self.assertIn('[data-testid="stBaseButton-headerNoPadding"] [data-testid="stIconMaterial"]', app_source)
+        self.assertIn("table.readout-table", app_source)
+        self.assertIn("border-collapse: separate !important", app_source)
         self.assertIn(".readout-table thead,", app_source)
         self.assertNotIn("overflow-x: auto;", app_source)
         self.assertIn("font-weight: 800", app_source)
