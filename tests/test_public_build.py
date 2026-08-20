@@ -60,6 +60,8 @@ class PublicBuildTests(unittest.TestCase):
         self.assertNotIn("--gold", app_source)
         self.assertNotIn('delta_color="off"', app_source)
         self.assertIn('delta_color="normal"', app_source)
+        self.assertIn('return "N/A" if percent is None else f"{float(percent):+.1%}"', app_source)
+        self.assertNotIn('f"{float(percent):+.1%} WoW"', app_source)
 
     def test_public_surface_uses_deep_navy_gold_and_bold_table_headers(self) -> None:
         app_source = (PROJECT_ROOT / "app.py").read_text(encoding="utf-8")

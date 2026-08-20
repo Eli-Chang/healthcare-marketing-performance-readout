@@ -232,7 +232,7 @@ def _display(value: Any, kind: str) -> str:
 
 def _delta(change: dict[str, Any]) -> str:
     percent = change.get("percent")
-    return "N/A WoW" if percent is None else f"{float(percent):+.1%} WoW"
+    return "N/A" if percent is None else f"{float(percent):+.1%}"
 
 
 def _metric_row(item: dict[str, Any]) -> dict[str, Any]:
