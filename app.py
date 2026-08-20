@@ -185,12 +185,15 @@ st.markdown(
     .readout-table-wrap {
         border: 1px solid var(--readout-table-line);
         border-radius: 8px;
-        overflow-x: auto;
+        overflow: auto;
         background: var(--readout-table-bg);
     }
     .readout-table {
         width: 100%;
-        border-collapse: collapse;
+        border-collapse: separate;
+        border-spacing: 0;
+        border-radius: 7px;
+        overflow: hidden;
         color: var(--readout-table-text);
         font-size: .96rem;
     }
@@ -203,6 +206,12 @@ st.markdown(
         border-bottom: 2px solid var(--readout-table-line);
         text-align: left;
         white-space: nowrap;
+    }
+    .readout-table thead tr:first-child th:first-child {
+        border-top-left-radius: 7px;
+    }
+    .readout-table thead tr:first-child th:last-child {
+        border-top-right-radius: 7px;
     }
     .readout-table td {
         background: var(--readout-table-bg);
