@@ -183,16 +183,17 @@ st.markdown(
         --gdg-horizontal-border-color: var(--readout-table-line) !important;
     }
     .readout-table-wrap {
-        border: 1px solid var(--readout-table-line);
+        border: 0;
         border-radius: 8px;
         overflow: auto;
         background: var(--readout-table-bg);
+        box-shadow: 0 0 0 1px var(--readout-table-line);
     }
     .readout-table {
         width: 100%;
         border-collapse: separate;
         border-spacing: 0;
-        border-radius: 7px;
+        border-radius: 8px;
         overflow: hidden;
         color: var(--readout-table-text);
         font-size: .96rem;
@@ -208,10 +209,10 @@ st.markdown(
         white-space: nowrap;
     }
     .readout-table thead tr:first-child th:first-child {
-        border-top-left-radius: 7px;
+        border-top-left-radius: 8px;
     }
     .readout-table thead tr:first-child th:last-child {
-        border-top-right-radius: 7px;
+        border-top-right-radius: 8px;
     }
     .readout-table td {
         background: var(--readout-table-bg);
