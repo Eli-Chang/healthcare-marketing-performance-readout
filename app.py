@@ -39,27 +39,24 @@ st.markdown(
     """
     <style>
     :root {
-        --readout-page: #081a36;
-        --readout-sidebar: #06142b;
-        --readout-surface: #10294b;
-        --readout-surface-raised: #17385e;
-        --readout-text: #f7fbff;
-        --readout-muted: #c7d3e2;
-        --readout-line: #2c4b70;
-        --readout-accent: #56b9b5;
-        --readout-accent-light: #7dd4cb;
-        --readout-accent-deep: #2d7f82;
-        --readout-positive: #7bb992;
-        --readout-negative: #d18489;
-        --readout-warning: #d4a54a;
-        --readout-warning-light: #f1d18b;
-        --readout-warning-bg: rgba(212, 165, 74, .14);
-        --readout-table-bg: #132844;
-        --readout-table-header: #203a5d;
-        --readout-table-alt: #182f51;
-        --readout-table-text: #f1f5fa;
-        --readout-table-muted: #cdd8e5;
-        --readout-table-line: #3a5677;
+        --readout-page: #f4f5f7;
+        --readout-sidebar: #eceff1;
+        --readout-surface: #ffffff;
+        --readout-surface-raised: #f8fafc;
+        --readout-text: #111827;
+        --readout-muted: #4b5563;
+        --readout-line: #c7cbd1;
+        --readout-focus: #374151;
+        --readout-focus-light: #6b7280;
+        --readout-positive: #15803d;
+        --readout-negative: #b91c1c;
+        --readout-status-neutral: #4b5563;
+        --readout-table-bg: #ffffff;
+        --readout-table-header: #202124;
+        --readout-table-alt: #eef0f2;
+        --readout-table-text: #111827;
+        --readout-table-muted: #ffffff;
+        --readout-table-line: #9ca3af;
     }
     html, body,
     [data-testid="stAppViewContainer"],
@@ -75,11 +72,10 @@ st.markdown(
     }
     h1, h2, h3 {
         color: var(--readout-text) !important;
-        text-shadow: 0 1px 0 rgba(0, 0, 0, .28);
     }
     .eyebrow {
         display: inline-block;
-        color: var(--readout-accent-light) !important;
+        color: var(--readout-focus) !important;
         font-weight: 750;
         letter-spacing: .02em;
     }
@@ -92,14 +88,14 @@ st.markdown(
         font-size: .95rem !important;
     }
     .synthetic-banner {
-        background: var(--readout-warning-bg);
-        border: 1px solid rgba(212, 165, 74, .38);
-        border-left: 4px solid var(--readout-warning);
-        color: var(--readout-warning-light) !important;
+        background: #e5e7eb;
+        border: 1px solid #bfc4cc;
+        border-left: 4px solid var(--readout-status-neutral);
+        color: #1f2937 !important;
         padding: .8rem 1rem;
         font-weight: 750;
         letter-spacing: .04em;
-        box-shadow: 0 5px 16px rgba(0, 0, 0, .14);
+        box-shadow: 0 5px 16px rgba(0, 0, 0, .08);
     }
     [data-testid="stMetricLabel"] {
         color: var(--readout-muted) !important;
@@ -122,9 +118,9 @@ st.markdown(
     [class*="st-key-kpi-card-"] {
         background: var(--readout-surface);
         border: 1px solid var(--readout-line);
-        border-left: 3px solid var(--readout-accent);
+        border-left: 3px solid var(--readout-focus);
         border-radius: 10px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, .16);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
         min-height: 154px;
         padding: .72rem .9rem .62rem;
     }
@@ -165,12 +161,12 @@ st.markdown(
         color: var(--readout-text) !important;
     }
     .stDataFrameGlideDataEditor {
-        --gdg-accent-color: var(--readout-accent) !important;
-        --gdg-accent-fg: var(--readout-page) !important;
-        --gdg-accent-light: rgba(86, 185, 181, .18) !important;
+        --gdg-accent-color: var(--readout-focus) !important;
+        --gdg-accent-fg: var(--readout-surface) !important;
+        --gdg-accent-light: rgba(55, 65, 81, .14) !important;
         --gdg-text-dark: var(--readout-text) !important;
         --gdg-text-medium: var(--readout-muted) !important;
-        --gdg-text-light: rgba(228, 236, 255, .78) !important;
+        --gdg-text-light: rgba(17, 24, 39, .68) !important;
         --gdg-text-bubble: var(--readout-muted) !important;
         --gdg-text-header: var(--readout-table-muted) !important;
         --gdg-text-group-header: var(--readout-table-muted) !important;
@@ -182,7 +178,7 @@ st.markdown(
         --gdg-bg-header-hovered: var(--readout-table-line) !important;
         --gdg-bg-group-header: var(--readout-table-header) !important;
         --gdg-bg-group-header-hovered: var(--readout-table-line) !important;
-        --gdg-bg-search-result: rgba(86, 185, 181, .14) !important;
+        --gdg-bg-search-result: rgba(55, 65, 81, .12) !important;
         --gdg-border-color: var(--readout-table-line) !important;
         --gdg-horizontal-border-color: var(--readout-table-line) !important;
     }
@@ -229,7 +225,7 @@ st.markdown(
     }
     button[data-baseweb="tab"][aria-selected="true"],
     [role="tab"][aria-selected="true"] {
-        color: var(--readout-accent-light) !important;
+        color: var(--readout-focus) !important;
         font-weight: 800 !important;
     }
     [data-testid="stTab"] {
@@ -237,19 +233,19 @@ st.markdown(
     }
     [data-testid="stTab"][aria-selected="true"],
     [data-testid="stTab"][aria-selected="true"] * {
-        color: var(--readout-accent-light) !important;
+        color: var(--readout-focus) !important;
         font-weight: 800 !important;
     }
     [data-testid="stTab"] .react-aria-SelectionIndicator {
-        background: var(--readout-accent) !important;
+        background: var(--readout-focus) !important;
     }
     [data-baseweb="tab-highlight"] {
-        background: var(--readout-accent) !important;
+        background: var(--readout-focus) !important;
     }
     .qa-card {
         background: var(--readout-surface);
         border: 1px solid var(--readout-line);
-        border-left: 3px solid var(--readout-accent);
+        border-left: 3px solid var(--readout-focus);
         border-radius: 8px;
         color: var(--readout-text);
         padding: .9rem 1rem;
@@ -258,7 +254,7 @@ st.markdown(
         color: var(--readout-positive) !important;
     }
     .qa-warning {
-        color: var(--readout-warning-light) !important;
+        color: var(--readout-status-neutral) !important;
     }
     .qa-review {
         color: var(--readout-negative) !important;
