@@ -39,21 +39,21 @@ st.markdown(
     """
     <style>
     :root {
-        --readout-page: #000E36;
-        --readout-sidebar: #000a26;
-        --readout-surface: #0b1e4f;
-        --readout-surface-raised: #102a66;
+        --readout-page: #000721;
+        --readout-sidebar: #000414;
+        --readout-surface: #071542;
+        --readout-surface-raised: #0f285e;
         --readout-text: #ffffff;
         --readout-muted: #e4ecff;
-        --readout-line: #354d86;
+        --readout-line: #2f467c;
         --readout-gold-light: #e3c56b;
-        --readout-gold: #c99b38;
+        --readout-gold: #e3c56b;
         --readout-gold-deep: #7b5514;
-        --readout-table-bg: #111827;
-        --readout-table-header: #1f2937;
-        --readout-table-text: #f3f4f6;
-        --readout-table-muted: #d1d5db;
-        --readout-table-line: #374151;
+        --readout-table-bg: #0b0f17;
+        --readout-table-header: #151a23;
+        --readout-table-text: #eef1f5;
+        --readout-table-muted: #b8c0cc;
+        --readout-table-line: #29313d;
     }
     html, body,
     [data-testid="stAppViewContainer"],
@@ -102,6 +102,13 @@ st.markdown(
     }
     [data-testid="stMetricValue"] {
         color: var(--readout-text) !important;
+    }
+    [data-testid="stMetricDelta"] {
+        background-color: color-mix(in srgb, currentColor 22%, transparent) !important;
+        border-radius: 999px;
+        padding: .18rem .5rem;
+        opacity: 1 !important;
+        font-weight: 700 !important;
     }
     [data-testid="stTab"] {
         font-size: 1rem !important;
@@ -172,7 +179,7 @@ st.markdown(
         white-space: nowrap;
     }
     .readout-table tbody tr:nth-child(even) td {
-        background: #1a2230;
+        background: #121821;
     }
     .readout-table tbody tr:last-child td {
         border-bottom: 0;

@@ -63,12 +63,14 @@ class PublicBuildTests(unittest.TestCase):
 
     def test_public_surface_uses_deep_navy_gold_and_bold_table_headers(self) -> None:
         app_source = (PROJECT_ROOT / "app.py").read_text(encoding="utf-8")
-        self.assertIn("--readout-page: #000E36", app_source)
+        self.assertIn("--readout-page: #000721", app_source)
         self.assertIn('page_title="Weekly Performance Readout"', app_source)
         self.assertIn('st.title("Weekly Performance Readout")', app_source)
         self.assertIn("--readout-gold-light: #e3c56b", app_source)
-        self.assertIn("--readout-table-bg: #111827", app_source)
-        self.assertIn("--readout-table-header: #1f2937", app_source)
+        self.assertIn("--readout-gold: #e3c56b", app_source)
+        self.assertIn("--readout-table-bg: #0b0f17", app_source)
+        self.assertIn("--readout-table-header: #151a23", app_source)
+        self.assertIn("color-mix(in srgb, currentColor 22%, transparent)", app_source)
         self.assertNotIn("--readout-gold-light: #fff0a6", app_source)
         self.assertIn("font-size: 1rem !important", app_source)
         self.assertIn('[data-testid="stTab"][aria-selected="true"]', app_source)
