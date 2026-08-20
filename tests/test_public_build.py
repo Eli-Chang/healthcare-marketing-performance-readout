@@ -54,17 +54,20 @@ class PublicBuildTests(unittest.TestCase):
         self.assertEqual(len(series), len(self.dataset.week_starts))
         self.assertTrue(all(item["trusted_row_count"] > 0 for item in series))
 
-    def test_public_surface_keeps_default_readable_theme_and_colored_deltas(self) -> None:
+    def test_public_surface_keeps_readable_theme_and_colored_deltas(self) -> None:
         app_source = (PROJECT_ROOT / "app.py").read_text(encoding="utf-8")
         self.assertNotIn("--navy", app_source)
         self.assertNotIn("--gold", app_source)
         self.assertNotIn('delta_color="off"', app_source)
         self.assertIn('delta_color="normal"', app_source)
 
-    def test_public_surface_uses_accessible_navy_gold_and_bold_table_headers(self) -> None:
+    def test_public_surface_uses_deep_navy_gold_and_bold_table_headers(self) -> None:
         app_source = (PROJECT_ROOT / "app.py").read_text(encoding="utf-8")
-        self.assertIn("--readout-page: #142b3f", app_source)
+        self.assertIn("--readout-page: #00175C", app_source)
+        self.assertIn('page_title="Weekly Performance Readout"', app_source)
+        self.assertIn('st.title("Weekly Performance Readout")', app_source)
         self.assertIn("--readout-gold-light: #fff0a6", app_source)
+        self.assertIn("font-size: 1rem !important", app_source)
         self.assertIn('[data-testid="stTab"][aria-selected="true"]', app_source)
         self.assertIn(".readout-table th", app_source)
         self.assertIn("font-weight: 800", app_source)

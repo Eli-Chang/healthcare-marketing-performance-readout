@@ -1,4 +1,4 @@
-"""Local portfolio surface for the Healthcare Marketing Weekly Performance Readout."""
+"""Local portfolio surface for the Weekly Performance Readout."""
 
 from __future__ import annotations
 
@@ -29,7 +29,7 @@ KPI_DEFINITIONS = (
 
 
 st.set_page_config(
-    page_title="Healthcare Marketing Weekly Performance Readout",
+    page_title="Weekly Performance Readout",
     page_icon="📈",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -39,13 +39,13 @@ st.markdown(
     """
     <style>
     :root {
-        --readout-page: #142b3f;
-        --readout-sidebar: #102538;
-        --readout-surface: #1b3a50;
-        --readout-surface-raised: #234b61;
-        --readout-text: #f6fbff;
-        --readout-muted: #c3d2dc;
-        --readout-line: #41657a;
+        --readout-page: #00175C;
+        --readout-sidebar: #000f46;
+        --readout-surface: #0d2b73;
+        --readout-surface-raised: #173b8b;
+        --readout-text: #ffffff;
+        --readout-muted: #e4ecff;
+        --readout-line: #4669b1;
         --readout-gold-light: #fff0a6;
         --readout-gold: #f2cc6b;
         --readout-gold-deep: #c99534;
@@ -78,6 +78,8 @@ st.markdown(
     }
     p, li, [data-testid="stCaptionContainer"], [data-testid="stSidebar"] label {
         color: var(--readout-muted) !important;
+        font-size: 1rem !important;
+        line-height: 1.45;
     }
     .synthetic-banner {
         background: linear-gradient(135deg, rgba(242, 204, 107, .18), rgba(201, 149, 52, .34));
@@ -90,9 +92,14 @@ st.markdown(
     }
     [data-testid="stMetricLabel"] {
         color: var(--readout-muted) !important;
+        font-size: 1rem !important;
+        font-weight: 700 !important;
     }
     [data-testid="stMetricValue"] {
         color: var(--readout-text) !important;
+    }
+    [data-testid="stTab"] {
+        font-size: 1rem !important;
     }
     [data-testid="stDataFrame"], [data-testid="stTable"] {
         border: 1px solid var(--readout-line);
@@ -114,7 +121,7 @@ st.markdown(
         --gdg-accent-light: rgba(242, 204, 107, .18) !important;
         --gdg-text-dark: var(--readout-text) !important;
         --gdg-text-medium: var(--readout-muted) !important;
-        --gdg-text-light: rgba(195, 210, 220, .72) !important;
+        --gdg-text-light: rgba(228, 236, 255, .78) !important;
         --gdg-text-bubble: var(--readout-muted) !important;
         --gdg-text-header: var(--readout-gold-light) !important;
         --gdg-text-group-header: var(--readout-gold-light) !important;
@@ -122,8 +129,8 @@ st.markdown(
         --gdg-bg-cell: var(--readout-surface) !important;
         --gdg-bg-cell-medium: var(--readout-surface) !important;
         --gdg-bg-header: var(--readout-surface-raised) !important;
-        --gdg-bg-header-has-focus: #355b70 !important;
-        --gdg-bg-header-hovered: #355b70 !important;
+        --gdg-bg-header-has-focus: #2851a5 !important;
+        --gdg-bg-header-hovered: #2851a5 !important;
         --gdg-bg-group-header: var(--readout-surface-raised) !important;
         --gdg-bg-group-header-hovered: #355b70 !important;
         --gdg-bg-search-result: rgba(242, 204, 107, .18) !important;
@@ -140,7 +147,7 @@ st.markdown(
         width: 100%;
         border-collapse: collapse;
         color: var(--readout-text);
-        font-size: .9rem;
+        font-size: .96rem;
     }
     .readout-table th {
         background: var(--readout-surface-raised);
@@ -160,7 +167,7 @@ st.markdown(
         white-space: nowrap;
     }
     .readout-table tbody tr:nth-child(even) td {
-        background: #1e4258;
+        background: #113578;
     }
     .readout-table tbody tr:last-child td {
         border-bottom: 0;
@@ -272,7 +279,7 @@ def load_dataset():
 
 dataset = load_dataset()
 
-st.title("Healthcare Marketing Weekly Performance Readout")
+st.title("Weekly Performance Readout")
 st.markdown(
     '<div class="synthetic-banner">SYNTHETIC DATA · FICTIONAL HEALTHCARE MARKETING ORGANIZATION · NO LIVE ACCOUNTS</div>',
     unsafe_allow_html=True,
