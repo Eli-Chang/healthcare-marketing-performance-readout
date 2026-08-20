@@ -54,6 +54,13 @@ class PublicBuildTests(unittest.TestCase):
         self.assertEqual(len(series), len(self.dataset.week_starts))
         self.assertTrue(all(item["trusted_row_count"] > 0 for item in series))
 
+    def test_public_surface_keeps_default_readable_theme_and_colored_deltas(self) -> None:
+        app_source = (PROJECT_ROOT / "app.py").read_text(encoding="utf-8")
+        self.assertNotIn("--navy", app_source)
+        self.assertNotIn("--gold", app_source)
+        self.assertNotIn('delta_color="off"', app_source)
+        self.assertIn('delta_color="normal"', app_source)
+
 
 if __name__ == "__main__":
     unittest.main()

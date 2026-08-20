@@ -34,31 +34,6 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-st.markdown(
-    """
-    <style>
-    :root { --navy: #12304a; --ink: #17324d; --muted: #617486; --line: #d9e2e8; --gold: #d9a441; --cream: #fbf4e2; }
-    .block-container { max-width: 1320px; padding-top: 2.2rem; padding-bottom: 3rem; }
-    h1, h2, h3 { color: var(--navy); letter-spacing: -0.02em; }
-    h1 { font-size: 2.65rem !important; }
-    h2 { margin-top: 1.6rem !important; }
-    .synthetic-banner { background: var(--cream); border-left: 4px solid var(--gold); color: #6b4c15; padding: .8rem 1rem; font-weight: 700; letter-spacing: .04em; margin: .6rem 0 1.8rem; }
-    .eyebrow { color: #1f5b82; font-size: .76rem; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; margin-bottom: -.35rem; }
-    .scope-note { color: var(--muted); font-size: .9rem; line-height: 1.55; }
-    .qa-card { border: 1px solid var(--line); border-radius: .55rem; padding: 1rem 1.1rem; background: #fff; min-height: 7.2rem; }
-    .qa-card strong { color: var(--navy); font-size: 1.15rem; }
-    .qa-pass { color: #1f6b4d; }
-    .qa-warning { color: #946c1c; }
-    .qa-review { color: #a45135; }
-    [data-testid="stMetricValue"] { color: var(--navy); }
-    [data-testid="stMetricLabel"] { color: #4b6479; }
-    .stDataFrame { border: 1px solid var(--line); }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
-
-
 def _currency(value: Any) -> str:
     return "N/A" if value is None else f"${float(value):,.2f}"
 
@@ -146,7 +121,7 @@ with report_tab:
         cols = st.columns(3)
         for column, (label, key, kind, note) in zip(cols, KPI_DEFINITIONS[start : start + 3]):
             with column:
-                st.metric(label, _display(readout["current_metrics"].get(key), kind), _delta(readout["changes"][key]), delta_color="off")
+                st.metric(label, _display(readout["current_metrics"].get(key), kind), _delta(readout["changes"][key]), delta_color="normal")
                 st.caption(note)
 
     st.subheader("Channel Performance")
