@@ -52,7 +52,7 @@ st.markdown(
         --readout-negative: #b91c1c;
         --readout-status-neutral: #374151;
         --readout-table-bg: #ffffff;
-        --readout-table-header: #202124;
+        --readout-table-header: #0e2442;
         --readout-table-alt: #eef0f2;
         --readout-table-text: #0e2442;
         --readout-table-muted: #ffffff;

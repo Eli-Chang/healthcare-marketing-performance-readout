@@ -75,7 +75,7 @@ class PublicBuildTests(unittest.TestCase):
         self.assertIn("--readout-negative: #b91c1c", app_source)
         self.assertIn("--readout-table-bg: #ffffff", app_source)
         self.assertIn("--readout-table-text: #0e2442", app_source)
-        self.assertIn("--readout-table-header: #202124", app_source)
+        self.assertIn("--readout-table-header: #0e2442", app_source)
         self.assertIn("color-mix(in srgb, currentColor 22%, transparent)", app_source)
         self.assertIn('st.container(key=f"kpi-card-{key}")', app_source)
         self.assertIn('[data-testid="stMetricValue"] p', app_source)
