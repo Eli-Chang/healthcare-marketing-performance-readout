@@ -70,6 +70,14 @@ st.markdown(
     [data-testid="stHeader"] {
         background: transparent !important;
     }
+    [data-testid="stExpandSidebarButton"],
+    [data-testid="stBaseButton-headerNoPadding"] {
+        color: var(--readout-text) !important;
+    }
+    [data-testid="stExpandSidebarButton"] [data-testid="stIconMaterial"],
+    [data-testid="stBaseButton-headerNoPadding"] [data-testid="stIconMaterial"] {
+        color: var(--readout-text) !important;
+    }
     h1, h2, h3 {
         color: var(--readout-text) !important;
     }
@@ -197,6 +205,10 @@ st.markdown(
         overflow: hidden;
         color: var(--readout-table-text);
         font-size: .96rem;
+    }
+    .readout-table thead,
+    .readout-table thead tr {
+        background: var(--readout-table-header);
     }
     .readout-table th {
         background: var(--readout-table-header);
